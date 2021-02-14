@@ -1,0 +1,51 @@
+.row {
+  max-width: $grid-width; // if enough space, this width. if not, 100% of the space it has
+  // background-color: #eee;
+  margin: 0 auto; // center block elements inside of another block element: the browser will automatically figure out the margin on the left and right side
+
+  &:not(:last-child) {
+    margin-bottom: $space-between-rows;
+  }
+
+  @include clearfix;
+
+  [class^="col-"] {
+    // background-color: bisque;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $space-between-columns;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$space-between-columns}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$space-between-columns}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$space-between-columns}) / 3) + #{$space-between-columns}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$space-between-columns}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$space-between-columns}) / 4) + #{$space-between-columns}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$space-between-columns}) / 4) +
+        (2 * #{$space-between-columns})
+    );
+  }
+}
